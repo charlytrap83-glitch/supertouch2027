@@ -418,7 +418,7 @@ h1,h2,h3,h4,th,button,.btn,.badge,.nv,.cnt,.sur,.go,.blc .tt,.ficheclub .ent .nm
 </div>
 <script>
 "use strict";
-var VERSION="2026-11-25T16:30";
+var VERSION="2026-11-25T17:40";
 
 /* ===== Bibliothèque de logos (base de références, back office) ===== */
 var BIBLIOTHEQUE=[
@@ -674,7 +674,7 @@ var BNOTES=[
 ];
 
 /* ===== Journal général (le plus récent en premier) ===== */
-var JOURNAL=[{d:"25 nov. 17h25",t:"PART",n:80,txt:"Candidature d'ASUL Touch Rugby (anciennement RC Lyon Touch, Solène Chaffaix, présidente) reçue le 25 nov. à 17h14 et relayée pour info par Cyril Faignot (LNT) à 17h15 : inscription de 3 équipes au SuperTouch 2026-2027 (Mixte, Hommes, Femmes), avec demande des documents à fournir pour l'inscription. Mail tracé dans la fenêtre des candidatures et fiche créée dans l'onglet Candidatures équipes, logo officiel vérifié et ajouté à la bibliothèque. Pas d'accusé automatique : le mail est arrivé via la LNT (condition C1 de la grille non remplie), une réponse adaptée (documents et démarche d'inscription) sera préparée puis soumise à Charles avant tout envoi."},
+var JOURNAL=[{d:"25 nov. 18h40",t:"SYS",n:81,txt:"Diffusion du CRM par adresse web fixe mise en place à la demande de Charles : l'alerte du canal back office (canal introuvable) s'affiche désormais uniquement quand le CRM est ouvert depuis la copie locale du lecteur Google Drive, et reste silencieuse sur l'adresse web pour ne pas bloquer les destinataires."},{d:"25 nov. 17h25",t:"PART",n:80,txt:"Candidature d'ASUL Touch Rugby (anciennement RC Lyon Touch, Solène Chaffaix, présidente) reçue le 25 nov. à 17h14 et relayée pour info par Cyril Faignot (LNT) à 17h15 : inscription de 3 équipes au SuperTouch 2026-2027 (Mixte, Hommes, Femmes), avec demande des documents à fournir pour l'inscription. Mail tracé dans la fenêtre des candidatures et fiche créée dans l'onglet Candidatures équipes, logo officiel vérifié et ajouté à la bibliothèque. Pas d'accusé automatique : le mail est arrivé via la LNT (condition C1 de la grille non remplie), une réponse adaptée (documents et démarche d'inscription) sera préparée puis soumise à Charles avant tout envoi."},
 {d:"25 nov. 14h37",t:"ORG",n:79,txt:"Suivi de la fiche Bordeaux affiné après analyse de la réponse de Maxime Boulade du 25 nov. : échafaudage, réseau du complexe et stand de récupération passés EN COURS ; référents terrain et médical à reprendre dès que la répartition des équipes sera connue ; prochaine étape mairie précisée (validation du dossier puis formalisation écrite, rendez-vous sur site prévu)."},
 {d:"25 nov. 14h35",t:"ORG",n:78,txt:"Réponse de Bordeaux Touch (Maxime Boulade) au mail récapitulatif LNT du 17 nov. : derniers documents administratifs envoyés à la mairie, rendez-vous sur site prévu bientôt ; équipe de bénévoles construite, devis échafaudage et partenariats stand de récupération en cours ; référents terrain et médical reportés tant que la répartition des équipes n'est pas connue ; connexion vérifiée il y a 2 ans, tests à refaire. Mail tracé dans la fenêtre des mails d'organisation et fiche Bordeaux actualisée (cinq sujets complétés, historique du club enrichi)."},
 {d:"24 nov. 12h05",t:"PART",n:77,txt:"Candidature de Jacou Touch Montpellier reçue le 24 nov. à 07h13 et relayée pour info par Cyril Faignot (LNT) à 11h50 : inscription d'une équipe au SuperTouch mixte 2026-2027, avec demande du prix d'inscription et du RIB. Mail tracé dans la fenêtre des candidatures et fiche créée dans l'onglet Candidatures équipes. Pas d'accusé automatique : le mail est arrivé via la LNT (condition C1 de la grille non remplie), une réponse adaptée (prix, RIB) sera préparée puis soumise à Charles avant tout envoi."},{d:"20 nov. 12h04",t:"ORG",n:76,txt:"Mail d'organisation reçu de Thibault Zettel (développement Touch France) : dossier Drive « ORGA SuperTouch 26/27 » créé pour regrouper tous les documents d'organisation en sous-dossiers par date, Titouan y a ajouté le lien vers le dossier des candidatures. Mail tracé dans la fenêtre des mails d'organisation, aucune réponse à envoyer."},
@@ -1347,7 +1347,7 @@ function boRelever(sil){
  s.id="boscript";
  s.src="backoffice.js?v="+Date.now();
  s.onload=function(){boActif=true;boRendu()};
- s.onerror=function(){BACKOFFICE=null;boRendu();if(!sil)boAlert("Canal introuvable : ouvrez le CRM depuis le lecteur Google Drive (G:\\Mon_Drive\\SuperTouch2027.html) pour activer le canal back office.")};
+ s.onerror=function(){BACKOFFICE=null;boRendu();if(!sil&&(typeof location==="undefined"||location.protocol==="file:"))boAlert("Canal introuvable : ouvrez le CRM depuis le lecteur Google Drive (G:\\Mon_Drive\\SuperTouch2027.html) pour activer le canal back office.")};
  (document.head||document.body).appendChild(s);
 }
 var boActif=false,boTimer=null;
